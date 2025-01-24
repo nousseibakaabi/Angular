@@ -1,0 +1,18 @@
+<input type="text" [(ngModel)]="titre">
+<div class="container">
+  <div class="row">
+
+<div *ngFor ="let x of categories" class="col-md-4" style="margin-bottom: 20px;">
+  <ng-container *ngIf="!titre || x.title.toLowerCase().includes(titre.toLowerCase())">
+  <app-card (add)="addToShortList(x)" (notified)="f($event)" [id]="x.id" [image]="x.image" [title]="x.title" [available]="x.available" [description]="x.description"></app-card>
+</ng-container>
+</div>
+</div>
+</div>
+<router-outlet></router-outlet>
+{{ nom }} <!---interpolation-->
+<button (click)="clickMe('a')">test</button> <!---event-binding-->
+<input value="nom"><!----->
+<input [value]="nom"><!--property-binding-->
+<br>
+<input [(ngModel)]="nom"> <!---two-way-databinding-->
